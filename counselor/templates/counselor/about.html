@@ -1,0 +1,177 @@
+{% extends 'counselor/base.html' %}
+
+{% block title %}About - AI Career Counselor{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-info text-white text-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-robot me-2"></i>About AI Career Counselor
+                    </h3>
+                </div>
+                
+                <div class="card-body p-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="text-primary mb-4">Project Overview</h4>
+                            <p class="lead">
+                                The AI Career Counselor is an intelligent expert system designed to help students 
+                                make informed career decisions based on their academic interests, skills, and aptitudes.
+                            </p>
+                            
+                            <h5 class="text-primary mt-4">Problem Statement</h5>
+                            <p>
+                                Many students lack personalized guidance that aligns with their academic interests, 
+                                skills, and aptitudes, leading to confusion and uninformed career choices. Traditional 
+                                career counseling methods may not be accessible to all students or may not provide 
+                                the depth of analysis needed for optimal decision-making.
+                            </p>
+                            
+                            <h5 class="text-primary mt-4">Our Solution</h5>
+                            <p>
+                                This project implements a rule-based expert system that utilizes <strong>First-Order 
+                                Predicate Logic (FOPL)</strong> and <strong>uncertainty reasoning</strong> to simulate 
+                                human expert decision-making. The system analyzes inputs such as favorite subjects 
+                                and aptitude ratings, then applies predefined logical rules using <strong>forward 
+                                chaining</strong> to generate tailored career recommendations.
+                            </p>
+                            
+                            <h5 class="text-primary mt-4">Technical Implementation</h5>
+                            <div class="row g-4 mt-2">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-database text-primary me-2"></i>Knowledge Base
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-check text-success me-2"></i>Career information database</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Subject relationships</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Personality trait mappings</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>FOPL rule definitions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-cogs text-success me-2"></i>Inference Engine
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-check text-success me-2"></i>Forward chaining algorithm</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Rule evaluation system</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Confidence calculation</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Working memory management</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-brain text-warning me-2"></i>FOPL Rules
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-check text-success me-2"></i>Predicate logic representation</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Conditional reasoning</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Variable binding</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Rule conflict resolution</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-question-circle text-info me-2"></i>Uncertainty Engine
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-check text-success me-2"></i>Certainty factor calculation</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Evidence combination</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Confidence scoring</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Uncertainty categorization</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="text-primary mt-5">Key Features</h5>
+                            <div class="row g-3 mt-2">
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-eye fa-2x text-primary mb-2"></i>
+                                        <h6>Explainable AI</h6>
+                                        <p class="small text-muted">
+                                            Transparent reasoning process that explains why each career was recommended
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-code fa-2x text-success mb-2"></i>
+                                        <h6>Pure Implementation</h6>
+                                        <p class="small text-muted">
+                                            No external AI libraries - all logic implemented from scratch in Python
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-user-cog fa-2x text-warning mb-2"></i>
+                                        <h6>Customizable</h6>
+                                        <p class="small text-muted">
+                                            Easy to modify rules and add new careers or assessment criteria
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="text-primary mt-5">Educational Value</h5>
+                            <p>
+                                This project demonstrates practical application of artificial intelligence concepts including:
+                            </p>
+                            <ul>
+                                <li><strong>Knowledge Representation:</strong> Using FOPL to represent domain knowledge</li>
+                                <li><strong>Inference Mechanisms:</strong> Forward chaining for logical reasoning</li>
+                                <li><strong>Expert Systems:</strong> Rule-based AI system architecture</li>
+                                <li><strong>Uncertainty Handling:</strong> Managing incomplete and uncertain information</li>
+                                <li><strong>Human-AI Interaction:</strong> User-friendly interface for complex AI systems</li>
+                            </ul>
+                            
+                            <div class="alert alert-primary mt-4">
+                                <h6 class="alert-heading">
+                                    <i class="fas fa-graduation-cap me-2"></i>Academic Project
+                                </h6>
+                                <p class="mb-0">
+                                    This AI Career Counselor was developed as part of an Artificial Intelligence 
+                                    course project, focusing on implementing core AI concepts without relying on 
+                                    external machine learning libraries.
+                                </p>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="{% url 'assessment_form' %}" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-rocket me-2"></i>Try the System
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

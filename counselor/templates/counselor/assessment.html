@@ -1,0 +1,228 @@
+{% extends 'counselor/base.html' %}
+
+{% block title %}Assessment - AI Career Counselor{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-trophy me-2"></i>Your AI Career Recommendations
+                    </h3>
+                    <p class="mb-0">Personalized career suggestions based on your profile</p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Hello, {{ assessment.name }}!</h5>
+                            <p class="text-muted mb-0">
+                                Based on your academic performance and interests, our AI system has analyzed 
+                                {{ recommendations.count }} potential career matches for you.
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <span class="badge bg-primary fs-6">
+                                <i class="fas fa-robot me-1"></i>AI Analysis Complete
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommendations -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <h4 class="mb-4">
+                        <i class="fas fa-list-ol me-2"></i>Top Career Recommendations
+                    </h4>
+                    
+                    {% for rec in recommendations %}
+                    <div class="card recommendation-card 
+                        {% if rec.confidence_score >= 80 %}confidence-high
+                        {% elif rec.confidence_score >= 60 %}confidence-medium
+                        {% else %}confidence-low{% endif %}">
+                        
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span class="badge bg-dark me-2">#{‌{ rec.rank }}</span>
+                                        <h5 class="card-title mb-0">Career Name Here</h5>
+                                    </div>
+                                    <p class="card-text text-muted mb-3">Career description would go here</p>
+                                    
+                                    <div class="mb-2">
+                                        <strong>AI Reasoning:</strong>
+                                        <p class="mb-0 text-muted">{{ rec.reasoning }}</p>
+                                    </div>
+                                </div>
+                                
+                               div class="mb-3">
+                                        <div class="progress mb-2" style="height: 8px;">
+                                            <div class="progress-bar" style="width: {{ rec.confidence_score }}%; 
+                                                 role="progressbar" 
+                                                 aria-valuenow="{{ rec.confidence_score }}" 
+                                                 aria-valuemin="0" 
+                                                 aria-valuemax="100"></div>
+                                        </div>
+                                        <strong class="text-primary">{{ rec.confidence_score }}% Match</strong>
+                                    </div>
+                                    
+                                    {% if rec.confidence_score >= 80 %}
+                                        <span class="badge bg-success">Excellent Match</span>
+                                    {% elif rec.confidence_score >= 60 %}
+                                        <span class="badge bg-warning">Good Match</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">Fair Match</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="card">
+                        <div class="card-body text-center py-5">
+                            <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                            <h5>No Strong Matches Found</h5>
+                            <p class="text-muted">
+                                Our AI couldn't find strong career matches based on your current profile. 
+                                Consider retaking the assessment with more detailed information.
+                            </p>
+                            <a href="{% url 'assessment' %}" class="btn btn-primary">
+                                <i class="fas fa-redo me-2"></i>Retake Assessment
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="fas fa-info-circle me-2"></i>Assessment Summary
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Name:</strong> {{ assessment.name }}</p>
+                            <p><strong>Age:</strong> {{ assessment.age }}</p>
+                            <p><strong>Education:</strong> {{ assessment.get_education_level_display }}</p>
+                            <p><strong>Assessment Date:</strong> {{ assessment.created_at|date:"M d, Y" }}</p>
+                            
+                            <hr>
+                            
+                            <h6>Top Subject Areas:</h6>
+                            <div class="mb-3">
+                                {% for subject, score in assessment.subject_scores.items %}
+                                    {% if score >= 70 %}
+                                        <span class="badge bg-success me-1 mb-1">
+                                            {{ subject|capfirst }} ({{ score }})
+                                        </span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            
+                            <h6>Career Interests:</h6>
+                            <div class="mb-3">
+                                {% for interest in assessment.career_interests %}
+                                    <span class="badge bg-primary me-1 mb-1">{{ interest|capfirst }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="fas fa-lightbulb me-2"></i>AI Insights
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <strong>Analysis Method:</strong>
+                                <p class="small text-muted mb-2">Forward Chaining Inference</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Logic System:</strong>
+                                <p class="small text-muted mb-2">First-Order Predicate Logic</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>Uncertainty Handling:</strong>
+                                <p class="small text-muted mb-2">Certainty Factor Model</p>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <small>
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Our AI uses explainable reasoning to ensure you understand 
+                                    why each career was recommended.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="fas fa-share-alt me-2"></i>Actions
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'assessment' %}" class="btn btn-outline-primary">
+                                    <i class="fas fa-redo me-2"></i>New Assessment
+                                </a>
+                                <button class="btn btn-outline-success" onclick="window.print()">
+                                    <i class="fas fa-print me-2"></i>Print Results
+                                </button>
+                                <button class="btn btn-outline-info" onclick="shareResults()">
+                                    <i class="fas fa-share me-2"></i>Share Results
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function shareResults() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'My AI Career Assessment Results',
+            text: 'Check out my personalized career recommendations from AI Career Counselor!',
+            url: window.location.href
+        });
+    } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Results URL copied to clipboard!');
+        });
+    }
+}
+
+// Add animation to progress bars
+document.addEventListener('DOMContentLoaded', function() {
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.transition = 'width 1s ease-in-out';
+            bar.style.width = width;
+        }, 500);
+    });
+});
+</script>
+
+{% endblock %}

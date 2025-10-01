@@ -1,0 +1,134 @@
+{% extends 'counselor/base.html' %}
+
+{% block title %}Home - AI Career Counselor{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-brain me-3"></i>AI Career Counselor
+                </h1>
+                <p class="lead mb-5">
+                    Discover your perfect career path using advanced Artificial Intelligence. 
+                    Our expert system uses First-Order Predicate Logic and Forward Chaining 
+                    to analyze your interests, skills, and academic performance.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'assessment_form' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket me-2"></i>Start Assessment
+                    </a>
+                    <a href="{% url 'about' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-info-circle me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">How Our AI System Works</h2>
+            <p class="lead text-muted">Advanced AI techniques for personalized career guidance</p>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-database fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Knowledge Base</h5>
+                    <p class="card-text">
+                        Comprehensive database of career information, subject relationships, 
+                        and expert rules built using First-Order Predicate Logic.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-cogs fa-3x text-success"></i>
+                    </div>
+                    <h5 class="card-title">Forward Chaining</h5>
+                    <p class="card-text">
+                        Our inference engine uses forward chaining to derive career 
+                        recommendations from your academic profile and interests.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-chart-line fa-3x text-warning"></i>
+                    </div>
+                    <h5 class="card-title">Uncertainty Reasoning</h5>
+                    <p class="card-text">
+                        Advanced uncertainty handling provides confidence scores 
+                        and explains the reasoning behind each recommendation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <div class="card">
+                <div class="card-body p-5">
+                    <h3 class="mb-4">Why Choose Our AI Career Counselor?</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Explainable AI</h6>
+                                    <small class="text-muted">Transparent reasoning process</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">No External Libraries</h6>
+                                    <small class="text-muted">Pure Python implementation</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Personalized Results</h6>
+                                    <small class="text-muted">Tailored to your profile</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Educational Value</h6>
+                                    <small class="text-muted">Learn AI concepts</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
