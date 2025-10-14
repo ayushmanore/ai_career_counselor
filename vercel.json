@@ -1,14 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "ai_career_counselor/wsgi.py",
+      "src": "AI_CAREER_COUNSELOR/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "ai_career_counselor/wsgi.py"
+      "dest": "AI_CAREER_COUNSELOR/wsgi.py"
     }
   ]
 }
