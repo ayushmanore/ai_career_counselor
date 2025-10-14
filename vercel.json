@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "myproject/wsgi.py",
+      "src": "ai_career_counselor/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "myproject/wsgi.py"
+      "dest": "ai_career_counselor/wsgi.py"
     }
   ]
 }
